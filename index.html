@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIANA - Beauty Studio, Hair Treatment & Massage ke Rumah Anda</title>
+    <title>Daftar Layanan & Treatment - Diana Beauty Studio</title>
     
-    <meta name="description" content="Salon, spa, dan pijat panggilan profesional ke rumah Anda. Layanan kecantikan terbaik dari Diana Beauty Studio.">
+    <meta name="description" content="Jelajahi katalog lengkap layanan kecantikan Diana Beauty Studio: Hair Treatment, Body Spa, Facial, dan Face Treatment langsung ke rumah Anda.">
     
     <!-- Bootstrap 5 & FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,36 +15,12 @@
         :root {
             --primary-color: #e63946;
             --secondary-color: #1d3557;
-            --glass-bg: rgba(255, 255, 255, 0.88);
-        }
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 95px;
+            --card-bg: #ffffff;
         }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f4f6f9;
             color: #333;
-        }
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 140px 0;
-            position: relative;
-        }
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
         .nav-logo {
             width: 42px;
@@ -52,6 +28,53 @@
             object-fit: cover;
             border-radius: 50%;
             border: 2px solid #dee2e6;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
+            color: white;
+            padding: 70px 0;
+            border-radius: 0 0 2.5rem 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .service-card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 1.25rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+            height: 100%;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+        .card-header-custom {
+            padding: 1.75rem 1.75rem 1rem 1.75rem;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        .feature-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #f1f3f5;
+            font-size: 0.92rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .visitor-badge {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #495057;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
     </style>
 </head>
@@ -61,7 +84,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-dark" href="index.html">
-                <img src="image 1.jpeg" alt="Diana Logo" class="nav-logo">
+                <img src="image1.jpeg" alt="Diana Logo" class="nav-logo">
                 <span style="letter-spacing: 0.5px;">DIANA <small class="text-muted fw-normal fs-6">Studio</small></span>
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -69,75 +92,139 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center gap-3">
-                    <li class="nav-item"><a class="nav-link fw-medium text-danger" href="layanan.html">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium text-danger active" href="layanan.html">Daftar Layanan</a></li>
                     <li class="nav-item"><a class="nav-link fw-medium" href="tentang-kami.html">Tentang Kami</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-center">
+    <!-- Hero Header -->
+    <header class="hero-banner text-center mb-5">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-2">Salon, Hair Beauty & Treatment</h1>
-            <h2 class="display-5 fw-light mb-4 text-white-50">Langsung di Rumah Anda</h2>
-            <p class="lead mb-4 text-light opacity-87 max-w-xl mx-auto">Nikmati perawatan premium tanpa harus keluar rumah, ditangani oleh profesional terpilih.</p>
-            <a href="layanan.html" class="btn btn-danger btn-lg rounded-pill px-5 fw-bold shadow">Jelajahi Layanan</a>
+            <a href="index.html" class="text-white-50 text-decoration-none small d-inline-block mb-3">
+                <i class="fa-solid fa-arrow-left me-1"></i> Kembali ke Beranda Utama
+            </a>
+            <h1 class="fw-bold display-5 mb-2">Katalog Layanan & Treatment</h1>
+            <p class="text-light opacity-75 mb-0 max-w-xl mx-auto">Solusi lengkap kecantikan, kebugaran, dan relaksasi langsung di rumah Anda.</p>
         </div>
     </header>
 
-    <!-- Services Section Preview -->
-    <section id="services" class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-2">Kategori Perawatan Utama</h2>
-                <p class="text-muted">Perawatan berkualitas salon dan spa langsung di kenyamanan rumah Anda.</p>
+    <!-- Konten Layanan Utama -->
+    <section class="container mb-5">
+        <div class="row g-4">
+            
+            <!-- 1. Hair Treatment & Styling -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="card-header-custom d-flex align-items-center gap-3">
+                        <div class="bg-danger-subtle text-danger p-3 rounded-4 fs-4">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold" style="font-size: 0.75rem;">Hair Section</span>
+                            <h3 class="fw-bold fs-5 mb-0 text-dark">Hair Service & Styling</h3>
+                        </div>
+                    </div>
+                    <div class="p-4 pt-3">
+                        <p class="text-muted small mb-3">Potongan presisi, pewarnaan total, hingga perawatan kulit kepala intensif.</p>
+                        
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Hair Cut & Styling</h6>
+                        <ul class="list-unstyled feature-list mb-3">
+                            <li><i class="fa-solid fa-check text-danger me-2"></i> Haircut (Wanita & Pria)</li>
+                            <li><i class="fa-solid fa-check text-danger me-2"></i> Haircut + Styling / Hairdo</li>
+                        </ul>
+
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Color & Texture</h6>
+                        <ul class="list-unstyled feature-list mb-3">
+                            <li><i class="fa-solid fa-check text-danger me-2"></i> Full Color, Highlight, Balayage</li>
+                            <li><i class="fa-solid fa-check text-danger me-2"></i> Smoothing, Rebounding, Perm</li>
+                        </ul>
+
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Hair Treatment</h6>
+                        <ul class="list-unstyled feature-list mb-0">
+                            <li><i class="fa-solid fa-check text-danger me-2"></i> Hairspa & Keratin Treatment</li>
+                            <li><i class="fa-solid fa-check text-danger me-2"></i> Scalp Detox & Anti Dandruff</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="glass-card p-4 h-100 shadow-sm text-center">
-                        <div class="mb-3 text-danger fs-2"><i class="fa-solid fa-scissors"></i></div>
-                        <h4 class="fw-bold mb-2 fs-5">Hair Service & Styling</h4>
-                        <p class="text-muted small mb-3">Potongan presisi, pewarnaan total, smoothing, hingga perawatan kulit kepala.</p>
-                        <a href="layanan.html" class="btn btn-sm btn-outline-danger rounded-pill px-3">Lihat Detail &rarr;</a>
+
+            <!-- 2. Body Treatment & Massage -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <div class="card-header-custom d-flex align-items-center gap-3">
+                        <div class="bg-success-subtle text-success p-3 rounded-4 fs-4">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold" style="font-size: 0.75rem;">Body Care</span>
+                            <h3 class="fw-bold fs-5 mb-0 text-dark">Body Spa & Massage</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="glass-card p-4 h-100 shadow-sm text-center">
-                        <div class="mb-3 text-success fs-2"><i class="fa-solid fa-spa"></i></div>
-                        <h4 class="fw-bold mb-2 fs-5">Body Spa & Massage</h4>
-                        <p class="text-muted small mb-3">Body scrub, polish, spa, dan pijat relaksasi aromaterapi untuk kebugaran.</p>
-                        <a href="layanan.html" class="btn btn-sm btn-outline-success rounded-pill px-3">Lihat Detail &rarr;</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="glass-card p-4 h-100 shadow-sm text-center">
-                        <div class="mb-3 text-primary fs-2"><i class="fa-solid fa-face-smile-beam"></i></div>
-                        <h4 class="fw-bold mb-2 fs-5">Facial & Face Treatment</h4>
-                        <p class="text-muted small mb-3">Berbagai pilihan facial wajah dan teknologi microdermabrasion modern.</p>
-                        <a href="layanan.html" class="btn btn-sm btn-outline-primary rounded-pill px-3">Lihat Detail &rarr;</a>
+                    <div class="p-4 pt-3">
+                        <p class="text-muted small mb-3">Kembalikan kebugaran tubuh dan relaksasi pikiran setelah lelah beraktivitas.</p>
+                        
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Body Wellness</h6>
+                        <ul class="list-unstyled feature-list mb-3">
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Body Scrub</li>
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Body Polish</li>
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Body Spa</li>
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Body Treatment</li>
+                        </ul>
+
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Relaxation & Therapy</h6>
+                        <ul class="list-unstyled feature-list mb-0">
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Relaxation Massage</li>
+                            <li><i class="fa-solid fa-check text-success me-2"></i> Aromatherapy Massage</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
+            <!-- 3. Facial & Face Treatment -->
+            <div class="col-lg-4 col-md-12">
+                <div class="service-card">
+                    <div class="card-header-custom d-flex align-items-center gap-3">
+                        <div class="bg-primary-subtle text-primary p-3 rounded-4 fs-4">
+                            <i class="fa-solid fa-face-smile-beam"></i>
+                        </div>
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold" style="font-size: 0.75rem;">Face Care</span>
+                            <h3 class="fw-bold fs-5 mb-0 text-dark">Facial & Face Treatment</h3>
+                        </div>
+                    </div>
+                    <div class="p-4 pt-3">
+                        <p class="text-muted small mb-3">Perawatan wajah menyeluruh dan teknologi mikrodemabrasi tingkat lanjut.</p>
+                        
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Facial Series</h6>
+                        <ul class="list-unstyled feature-list mb-3">
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Basic & Deep Cleansing Facial</li>
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Brightening & Glow Facial</li>
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Acne & Hydrating Facial</li>
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Anti-Aging Facial</li>
+                        </ul>
+
+                        <h6 class="fw-bold text-dark fs-6 mt-3 mb-2">Advanced Microdermabrasion</h6>
+                        <ul class="list-unstyled feature-list mb-0">
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Diamond & Glow Microdermabrasion</li>
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Deep Cleansing & Hydra Microdermabrasion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Section Ringkasan Tentang Kami -->
-    <section id="about" class="py-5 bg-white border-top">
-        <div class="container py-4">
-            <div class="row align-items-center g-5">
-                <div class="col-md-5 text-center">
-                    <img src="image 1.jpeg" alt="Diana Beauty Studio" class="img-fluid rounded-4 shadow-sm border" style="max-width: 240px;">
-                </div>
-                <div class="col-md-7">
-                    <h2 class="fw-bold mb-3">Tentang Diana Beauty Studio</h2>
-                    <p class="text-muted leading-relaxed">Kami menghadirkan pengalaman perawatan salon mewah langsung ke pintu rumah Anda. Didukung oleh tenaga ahli bersertifikat, produk berkualitas tinggi, dan standar higienis yang ketat.</p>
-                    <div class="mt-4">
-                        <a href="tentang-kami.html" class="btn btn-dark rounded-pill px-4 shadow-sm">
-                            <i class="fa-solid fa-location-dot me-2"></i> Lihat Info Lokasi & Chat WhatsApp
-                        </a>
-                    </div>
-                </div>
+    <!-- Modul Pelacak Pengunjung Mandiri (Real-Time API) -->
+    <section class="text-center pb-5">
+        <div class="container">
+            <div class="visitor-badge shadow-sm">
+                <i class="fa-solid fa-chart-line text-danger"></i>
+                <span>Total Pengunjung Real:</span>
+                <strong id="live-visitor-count" class="text-dark">Memuat...</strong>
             </div>
         </div>
     </section>
@@ -150,7 +237,22 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS & Modul Skrip Penghitung Mandiri -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Modul Mandiri Hit Counter via CountAPI Publik
+        document.addEventListener("DOMContentLoaded", function() {
+            // Menggunakan namespace unik untuk web Anda agar angkanya berdiri sendiri
+            fetch('https://api.countapi.xyz/hit/dianabeautystudio-hafid/visits')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('live-visitor-count').innerText = data.value.toLocaleString('id-ID');
+                })
+                .catch(error => {
+                    // Fallback jika jaringan/api terblokir browser
+                    document.getElementById('live-visitor-count').innerText = "1";
+                });
+        });
+    </script>
 </body>
 </html>
