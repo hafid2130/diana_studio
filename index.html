@@ -1,76 +1,87 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIANA - Beauty Studio, Hair Treatment & Massage ke Rumah Anda</title>
-    
+    <title>DIANA - Beauty Studio & Home Service</title>
     <meta name="description" content="Salon, spa, dan pijat panggilan profesional ke rumah Anda. Layanan kecantikan terbaik dari Diana Beauty Studio.">
     
-    <!-- Bootstrap 5 & FontAwesome -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5, FontAwesome, Animate.css, AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
             --primary-color: #e63946;
             --secondary-color: #1d3557;
-            --glass-bg: rgba(255, 255, 255, 0.88);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+        [data-bs-theme="dark"] {
+            --glass-bg: rgba(30, 30, 30, 0.85);
         }
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 95px;
+            scroll-padding-top: 90px;
         }
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 140px 0;
-            position: relative;
         }
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         .glass-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         .nav-logo {
             width: 42px;
             height: 42px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid #dee2e6;
         }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm py-3 bg-body">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-dark" href="index.html">
-                <img src="image1.jpeg" alt="Diana Logo" class="nav-logo">
-                <span style="letter-spacing: 0.5px;">DIANA <small class="text-muted fw-normal fs-6">Studio</small></span>
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-body" href="index.html">
+                <img src="image1.jpeg" alt="Diana Logo" class="nav-logo border">
+                <span style="letter-spacing: 0.5px;">DIANA <small class="text-danger fw-normal fs-6">Studio</small></span>
             </a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center gap-3">
-                    <li class="nav-item"><a class="nav-link fw-medium text-danger" href="layanan.html">Layanan</a></li>
+            
+            <div class="d-flex align-items-center gap-2 order-lg-3">
+                <!-- Toggle Dark Mode -->
+                <button class="btn btn-outline-secondary rounded-circle" id="themeToggle" title="Ubah Mode Tampilan">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end order-lg-2" id="navbarNav">
+                <ul class="navbar-nav align-items-center gap-3 me-3">
+                    <li class="nav-item"><a class="nav-link fw-medium text-danger active" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="layanan.html">Layanan</a></li>
                     <li class="nav-item"><a class="nav-link fw-medium" href="tentang-kami.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium btn btn-sm btn-outline-danger px-3 rounded-pill" href="admin.html"><i class="fa-solid fa-user-lock me-1"></i> Admin Portal</a></li>
                 </ul>
             </div>
         </div>
@@ -78,64 +89,44 @@
 
     <!-- Hero Section -->
     <header class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-2">Salon, Hair Beauty & Treatment</h1>
-            <h2 class="display-5 fw-light mb-4 text-white-50">Langsung di Rumah Anda</h2>
-            <p class="lead mb-4 text-light opacity-87 max-w-xl mx-auto">Nikmati perawatan premium tanpa harus keluar rumah, ditangani oleh profesional terpilih.</p>
-            <a href="layanan.html" class="btn btn-danger btn-lg rounded-pill px-5 fw-bold shadow">Jelajahi Layanan</a>
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="display-4 fw-bold mb-2 animate__animated animate__fadeInDown">Salon, Hair Beauty & Treatment</h1>
+            <h2 class="display-6 fw-light mb-4 text-white-50 animate__animated animate__fadeInUp">Langsung di Rumah Anda</h2>
+            <p class="lead mb-4 text-light max-w-xl mx-auto">Nikmati perawatan premium tanpa harus keluar rumah, ditangani oleh profesional terpilih.</p>
+            <a href="layanan.html" class="btn btn-danger btn-lg rounded-pill px-5 fw-bold shadow animate__animated animate__pulse animate__infinite">Jelajahi Layanan</a>
         </div>
     </header>
 
-    <!-- Services Section Preview -->
-    <section id="services" class="py-5 bg-light">
+    <!-- Kategori Perawatan -->
+    <section id="services" class="py-5 bg-body-tertiary">
         <div class="container py-4">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="fw-bold mb-2">Kategori Perawatan Utama</h2>
-                <p class="text-muted">Perawatan berkualitas salon dan spa langsung di kenyamanan rumah Anda.</p>
+                <p class="text-muted">Perawatan berkualitas salon dan spa langsung di rumah Anda.</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="glass-card p-4 h-100 shadow-sm text-center">
-                        <div class="mb-3 text-danger fs-2"><i class="fa-solid fa-scissors"></i></div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-4 h-100 text-center">
+                        <div class="mb-3 text-danger fs-1"><i class="fa-solid fa-scissors"></i></div>
                         <h4 class="fw-bold mb-2 fs-5">Hair Service & Styling</h4>
-                        <p class="text-muted small mb-3">Potongan presisi, pewarnaan total, smoothing, hingga perawatan kulit kepala.</p>
+                        <p class="text-muted small mb-3">Potongan presisi, pewarnaan total, smoothing, hingga penataan gaya.</p>
                         <a href="layanan.html" class="btn btn-sm btn-outline-danger rounded-pill px-3">Lihat Detail &rarr;</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="glass-card p-4 h-100 shadow-sm text-center">
-                        <div class="mb-3 text-success fs-2"><i class="fa-solid fa-spa"></i></div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card p-4 h-100 text-center">
+                        <div class="mb-3 text-success fs-1"><i class="fa-solid fa-spa"></i></div>
                         <h4 class="fw-bold mb-2 fs-5">Body Spa & Massage</h4>
                         <p class="text-muted small mb-3">Body scrub, polish, spa, dan pijat relaksasi aromaterapi untuk kebugaran.</p>
                         <a href="layanan.html" class="btn btn-sm btn-outline-success rounded-pill px-3">Lihat Detail &rarr;</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="glass-card p-4 h-100 shadow-sm text-center">
-                        <div class="mb-3 text-primary fs-2"><i class="fa-solid fa-face-smile-beam"></i></div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card p-4 h-100 text-center">
+                        <div class="mb-3 text-primary fs-1"><i class="fa-solid fa-face-smile-beam"></i></div>
                         <h4 class="fw-bold mb-2 fs-5">Facial & Face Treatment</h4>
-                        <p class="text-muted small mb-3">Berbagai pilihan facial wajah dan teknologi microdermabrasion modern.</p>
+                        <p class="text-muted small mb-3">Pembersihan mendalam, facial wajah, dan teknologi relaksasi kulit modern.</p>
                         <a href="layanan.html" class="btn btn-sm btn-outline-primary rounded-pill px-3">Lihat Detail &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Ringkasan Tentang Kami -->
-    <section id="about" class="py-5 bg-white border-top">
-        <div class="container py-4">
-            <div class="row align-items-center g-5">
-                <div class="col-md-5 text-center">
-                    <img src="image1.jpeg" alt="Diana Beauty Studio" class="img-fluid rounded-4 shadow-sm border" style="max-width: 240px;">
-                </div>
-                <div class="col-md-7">
-                    <h2 class="fw-bold mb-3">Tentang Diana Beauty Studio</h2>
-                    <p class="text-muted leading-relaxed">Kami menghadirkan pengalaman perawatan salon mewah langsung ke pintu rumah Anda. Didukung oleh tenaga ahli bersertifikat, produk berkualitas tinggi, dan standar higienis yang ketat.</p>
-                    <div class="mt-4">
-                        <a href="tentang-kami.html" class="btn btn-dark rounded-pill px-4 shadow-sm">
-                            <i class="fa-solid fa-location-dot me-2"></i> Lihat Info Lokasi & Chat WhatsApp
-                        </a>
                     </div>
                 </div>
             </div>
@@ -150,7 +141,37 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Logic Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (theme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun text-warning';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+    </script>
 </body>
 </html>
+
+
+<!-- DianaKecantikan.com -->
+<!-- DianaSalonKecantikan.com -->
