@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Diana Beauty Studio</title>
+    
+    <!-- Bootstrap 5, FontAwesome, SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .login-card {
+            max-width: 420px;
+            border-radius: 1.25rem;
+        }
+        .admin-dashboard {
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-body-tertiary py-5">
+
+    <div class="container">
+        <!-- 1. LOGIN BOX -->
+        <div id="login-box" class="card login-card shadow-lg border-0 mx-auto p-4 bg-body">
+            <div class="text-center mb-4">
+                <div class="bg-danger-subtle text-danger p-3 rounded-circle d-inline-block mb-2">
+                    <i class="fa-solid fa-user-shield fs-2"></i>
+                </div>
+                <h3 class="fw-bold">Admin Portal</h3>
+                <p class="text-muted small">Diana Beauty Studio Management</p>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="mb-3">
+                    <label class="form-label small fw-medium">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="username" class="form-control" placeholder="admin_diana" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label small fw-medium">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger w-100 py-2 rounded-pill fw-bold">Masuk Portal</button>
+            </form>
+        </div>
+
+        <!-- 2. MAIN ADMIN DASHBOARD (Hidden by default) -->
+        <div id="admin-panel" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold mb-1">Dashboard Layanan</h2>
+                    <span class="badge bg-success-subtle text-success border border-success"><i class="fa-solid fa-circle-check me-1"></i> Terautentikasi (JWT Token Active)</span>
+                </div>
+                <button onclick="logout()" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="fa-solid fa-right-from-bracket me-1"></i> Keluar</button>
+            </div>
+
+            <div class="card admin-dashboard border-0 shadow-sm p-4 bg-body mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0">Daftar Layanan Aktif</h5>
+                    <button class="btn btn-danger btn-sm rounded-pill" data-bs-toggle="modal" data-bs-target="#addServiceModal">
+                        <i class="fa-solid fa-plus me-1"></i> Tambah Layanan Baru
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Layanan</th>
+                                <th>Kategori</th>
+                                <th>Deskripsi</th>
+                                <th class="text-end">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-service-table">
+                            <!-- Rows rendered dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TAMBAH LAYANAN -->
+    <div class="modal fade" id="addServiceModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-header-title fw-bold">Tambah Layanan Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label small">Nama Layanan</label>
+                        <input type="text" id="new-name" class="form-control" placeholder="Contoh: Spa Aromaterapi">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Kategori</label>
+                        <select id="new-cat" class="form-select">
+                            <option value="Hair Care">Hair Care</option>
+                            <option value="Skin & Spa">Skin & Spa</option>
+                            <option value="Hair Treatment">Hair Treatment</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Deskripsi Singkat</label>
+                        <textarea id="new-desc" class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" onclick="saveNewService()" class="btn btn-danger">Simpan Layanan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let adminToken = '';
+        let mockData = [
+            { id: 1, name: "Potong & Styling Rambut", category: "Hair Care", description: "Layanan pemotongan dan penataan gaya rambut presisi." },
+            { id: 2, name: "Facial & Massage Wajah", category: "Skin & Spa", description: "Pembersihan mendalam dan relaksasi otot wajah." }
+        ];
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+
+            // Simulasi Login Auth (Dihubungkan ke endpoint backend Render Anda)
+            if (u === 'admin_diana' && p === 'admin123') {
+                adminToken = 'sample_jwt_token_xxxxxx';
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Berhasil!',
+                    text: 'Selamat datang kembali, Admin Diana Studio.',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+
+                document.getElementById('login-box').classList.add('d-none');
+                document.getElementById('admin-panel').classList.remove('d-none');
+                loadAdminTable();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Akses Ditolak',
+                    text: 'Username atau Password salah!'
+                });
+            }
+        }
+
+        function loadAdminTable() {
+            const tbody = document.getElementById('admin-service-table');
+            tbody.innerHTML = '';
+            mockData.forEach((item, index) => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td class="fw-bold">${item.name}</td>
+                        <td><span class="badge bg-danger-subtle text-danger">${item.category}</span></td>
+                        <td class="small text-muted">${item.description}</td>
+                        <td class="text-end">
+                            <button onclick="deleteService(${item.id})" class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function saveNewService() {
+            const name = document.getElementById('new-name').value;
+            const category = document.getElementById('new-cat').value;
+            const description = document.getElementById('new-desc').value;
+
+            if (!name) {
+                Swal.fire('Peringatan', 'Nama layanan tidak boleh kosong!', 'warning');
+                return;
+            }
+
+            mockData.push({ id: Date.now(), name, category, description });
+            bootstrap.Modal.getInstance(document.getElementById('addServiceModal')).hide();
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Layanan baru telah ditambahkan secara dinamis.',
+                timer: 1500,
+                showConfirmButton: false
+            });
+
+            loadAdminTable();
+        }
+
+        function deleteService(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Layanan ini akan dihapus dari daftar publik!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#e63946',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    mockData = mockData.filter(item => item.id !== id);
+                    loadAdminTable();
+                    Swal.fire('Terhapus!', 'Layanan berhasil dihapus.', 'success');
+                }
+            });
+        }
+
+        function logout() {
+            adminToken = '';
+            document.getElementById('admin-panel').classList.add('d-none');
+            document.getElementById('login-box').classList.remove('d-none');
+        }
+    </script>
+</body>
+</html>
