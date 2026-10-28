@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan - Diana Beauty Studio</title>
+    <title>Daftar Layanan - Diana Beauty Studio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pilih berbagai menu layanan perawatan salon profesional dari Diana Beauty Studio yang siap dipanggil langsung ke rumah Anda.">
+
+    <!-- Tailwind CSS CDN untuk Styling & Dark Mode -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,18 +26,16 @@
     <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
-                    D
-                </div>
+            <!-- Logo menggunakan image1.jpeg -->
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="image1.jpeg" alt="Diana Studio Logo" class="w-10 h-10 rounded-full object-cover border-2 border-rose-500 shadow-md">
                 <span class="text-xl font-bold tracking-tight">DIANA <span class="text-rose-500 font-medium">Studio</span></span>
-            </div>
+            </a>
 
             <!-- Navigation Links -->
             <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
                 <a href="index.html" class="hover:text-rose-500 transition">Beranda</a>
-                <a href="layanan.html" class="text-rose-500 font-semibold transition">Layanan</a>
+                <a href="layanan.html" class="text-rose-500 font-semibold transition">Daftar Layanan</a>
                 <a href="tentang-kami.html" class="hover:text-rose-500 transition">Tentang Kami</a>
             </nav>
 
@@ -53,7 +56,7 @@
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Menu & Layanan Perawatan</h1>
             <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-12">Perawatan profesional yang dapat dipesan langsung ke rumah Anda.</p>
             
-            <!-- Grid Layanan dengan Gambar -->
+            <!-- Grid Layanan dengan Gambar Lokal -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <!-- Card 1 -->
                 <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
