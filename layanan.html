@@ -1,157 +1,124 @@
 <!DOCTYPE html>
-<html lang="id" data-bs-theme="light">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Layanan - Diana Beauty Studio</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
+    <title>Layanan - Diana Beauty Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <style>
-        .card-service {
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-service:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-        .card-service-img-wrapper {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-            background-color: #f1f3f5;
-        }
-        .card-service-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .card-service:hover .card-service-img {
-            transform: scale(1.08);
-        }
-        .badge-category {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background-color: rgba(230, 57, 70, 0.9);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            z-index: 2;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-body-tertiary">
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top shadow-sm py-3 bg-body">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-body" href="index.html">
-                <img src="image1.jpeg" alt="Diana Logo" style="width: 42px; height: 42px; border-radius: 50%;" class="border">
-                <span>DIANA <small class="text-danger fw-normal">Studio</small></span>
-            </a>
-            <div class="d-flex align-items-center gap-2 order-lg-3">
-                <button class="btn btn-outline-secondary rounded-circle" id="themeToggle">
-                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    D
+                </div>
+                <span class="text-xl font-bold tracking-tight">DIANA <span class="text-rose-500 font-medium">Studio</span></span>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="index.html" class="hover:text-rose-500 transition">Beranda</a>
+                <a href="layanan.html" class="text-rose-500 font-semibold transition">Layanan</a>
+                <a href="tentang-kami.html" class="hover:text-rose-500 transition">Tentang Kami</a>
+            </nav>
+
+            <!-- Actions (Dark Mode Toggle) -->
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:scale-105 transition shadow-sm" aria-label="Toggle Dark Mode">
+                    <svg id="theme-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
                 </button>
             </div>
-            <div class="collapse navbar-collapse justify-content-end order-lg-2" id="navbarNav">
-                <ul class="navbar-nav gap-3 me-3">
-                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium text-danger active" href="layanan.html">Daftar Layanan</a></li>
-                    <li class="nav-item"><a class="nav-link fw-medium" href="tentang-kami.html">Tentang Kami</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="bg-dark text-white py-5 text-center animate__animated animate__fadeIn">
-        <div class="container">
-            <h1 class="fw-bold display-5">Menu & Layanan Perawatan</h1>
-            <p class="text-white-50 mb-0">Perawatan profesional yang dapat dipesan langsung ke rumah Anda.</p>
         </div>
     </header>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4" id="service-container">
-                <div class="text-center py-5">
-                    <div class="spinner-border text-danger" role="status"></div>
-                    <p class="mt-2 text-muted">Memuat data layanan dinamis...</p>
+    <!-- Content Section -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Menu & Layanan Perawatan</h1>
+            <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-12">Perawatan profesional yang dapat dipesan langsung ke rumah Anda.</p>
+            
+            <!-- Grid Layanan dengan Gambar -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image2.jpeg" alt="Potong & Styling Rambut" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Potong & Styling Rambut</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Layanan pemotongan dan penataan gaya rambut presisi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image3.jpeg" alt="Facial & Massage Wajah" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Facial & Massage Wajah</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Pembersihan mendalam dan relaksasi otot wajah.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image4.jpeg" alt="Hair Treatment L'Oréal" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Hair Treatment L'Oréal</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Perawatan rambut intensif dengan produk terkemuka.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        <p>&copy; 2026 Diana Beauty Studio. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- Script Toggle Dark Mode -->
     <script>
-        // API URL (Ganti dengan URL API Render Anda saat dipublish)
-        const API_URL = 'https://diana-beauty-backend.onrender.com/api/services';
-
-        // Sample Data Fallback (Jika API belum terhubung)
-        const fallbackServices = [
-            { id: 1, name: "Potong & Styling Rambut", category: "Hair Care", image: "image2.jpeg", description: "Layanan pemotongan dan penataan gaya rambut presisi." },
-            { id: 2, name: "Facial & Massage Wajah", category: "Skin & Spa", image: "image3.jpeg", description: "Pembersihan mendalam dan relaksasi otot wajah." },
-            { id: 3, name: "Hair Treatment L'Oréal", category: "Hair Treatment", image: "image4.jpeg", description: "Perawatan rambut intensif dengan produk terkemuka." }
-        ];
-
-        async function renderServices() {
-            const container = document.getElementById('service-container');
-            let services = [];
-
-            try {
-                const res = await fetch(API_URL);
-                if (res.ok) {
-                    services = await res.json();
-                } else {
-                    services = fallbackServices;
-                }
-            } catch (err) {
-                services = fallbackServices;
-            }
-
-            container.innerHTML = '';
-            services.forEach((item, index) => {
-                container.innerHTML += `
-                    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp" style="animation-delay: ${index * 0.15}s;">
-                        <div class="card card-service h-100 bg-body border-0 shadow-sm">
-                            <div class="card-service-img-wrapper">
-                                <span class="badge-category">${item.category}</span>
-                                <img src="${item.image}" class="card-service-img" alt="${item.name}">
-                            </div>
-                            <div class="card-body d-flex flex-column p-4">
-                                <h4 class="fw-bold h5 mb-2">${item.name}</h4>
-                                <p class="text-muted small flex-grow-1">${item.description}</p>
-                                <a href="https://wa.me/6285894950648?text=Halo%20Diana%20Beauty%20Studio,%20saya%20ingin%20pesan%20layanan%20${encodeURIComponent(item.name)}" 
-                                   target="_blank" class="btn btn-danger w-100 rounded-pill py-2 mt-3">
-                                   <i class="fa-brands fa-whatsapp me-2"></i> Pesan via WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
 
-        renderServices();
-
-        // Dark Mode Logic
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-bs-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun text-warning' : 'fa-solid fa-moon';
-        }
-        setTheme(localStorage.getItem('theme') || 'light');
         themeToggleBtn.addEventListener('click', () => {
-            setTheme(document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         });
     </script>
 </body>
