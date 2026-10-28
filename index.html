@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diana Beauty Studio - Salon, Hair Beauty & Treatment</title>
+    
+    <!-- SEO Meta Tags Penting untuk Google -->
+    <title>Diana Beauty Studio - Salon, Hair Beauty & Treatment Panggilan ke Rumah</title>
+    <meta name="description" content="Nikmati layanan salon kecantikan, potong rambut, facial, dan hair treatment profesional langsung di rumah Anda. Ditangani oleh tenaga ahli berpengalaman dari Diana Beauty Studio.">
+    <meta name="keywords" content="Diana Beauty Studio, salon panggilan ke rumah, hair treatment, facial, salon kecantikan terdekat">
+
+    <!-- Tailwind CSS CDN untuk Styling & Dark Mode -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,17 +28,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
-                    D
-                </div>
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="image1.jpeg" alt="Diana Studio Logo" class="w-10 h-10 rounded-full object-cover border-2 border-rose-500 shadow-md">
                 <span class="text-xl font-bold tracking-tight">DIANA <span class="text-rose-500 font-medium">Studio</span></span>
-            </div>
+            </a>
 
             <!-- Navigation Links -->
             <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
                 <a href="index.html" class="text-rose-500 font-semibold transition">Beranda</a>
-                <a href="layanan.html" class="hover:text-rose-500 transition">Layanan</a>
+                <a href="layanan.html" class="hover:text-rose-500 transition">Daftar Layanan</a>
                 <a href="tentang-kami.html" class="hover:text-rose-500 transition">Tentang Kami</a>
             </nav>
 
