@@ -6,9 +6,8 @@
     <title>Tentang Kami - Diana Beauty Studio</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Profil Diana Beauty Studio, lokasi salon, kontak WhatsApp, dan peta lokasi di Ciledug, Tangerang.">
-    <meta name="keywords" content="tentang diana beauty studio, alamat salon ciledug, kontak salon panggilan">
-
+    <meta name="description" content="Profil Diana Beauty Studio, lokasi salon, kontak WhatsApp, Instagram, dan peta lokasi di Ciledug, Tangerang.">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -35,7 +34,7 @@
                 <a href="tentang-kami.html" class="text-rose-500 font-semibold">Tentang Kami</a>
             </nav>
 
-            <!-- Mobile Menu Button (Hamburger) -->
+            <!-- Mobile Menu Button -->
             <div class="flex items-center md:hidden">
                 <button id="mobile-menu-button" class="p-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 focus:outline-none" aria-label="Buka Menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +67,7 @@
                 
                 <!-- Info Kontak & Alamat -->
                 <div class="space-y-6 bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Informasi Operasional</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Informasi Operasional & Kontak</h2>
                     
                     <div class="flex items-start space-x-4">
                         <div class="p-3 bg-rose-100 text-rose-600 rounded-xl">
@@ -77,6 +76,7 @@
                         <div>
                             <h3 class="font-bold text-gray-900">Alamat Pangkalan</h3>
                             <p class="text-sm text-gray-600 mt-1">Jl. Tanah Seratus Gg. H. Gozali, RT.06/RW.004, Sudimara Jaya, Kec. Ciledug, Kota Tangerang, Banten 15151</p>
+                            <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="inline-block mt-2 text-xs font-semibold text-rose-500 hover:underline">Buka di Google Maps &rarr;</a>
                         </div>
                     </div>
 
@@ -90,24 +90,33 @@
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-gray-200">
-                        <a href="https://wa.me/" target="_blank" class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-md transition space-x-2">
+                    <!-- Tautan Media Sosial & WhatsApp -->
+                    <div class="pt-4 border-t border-gray-200 space-y-3">
+                        <a href="https://wa.me/628XXXXXXXXXX" target="_blank" class="flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-md transition space-x-2">
                             <span>Hubungi via WhatsApp</span>
+                        </a>
+                        <a href="https://instagram.com/eckonana_salon" target="_blank" class="flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-semibold shadow-md transition space-x-2">
+                            <span>Ikuti Instagram Kami (@eckonana_salon)</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Google Maps Embed -->
-                <div class="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-80 lg:h-full min-h-[320px]">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1953!2d106.7111845!3d-6.2334019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fa43d46a0d01%3A0x8e87ef8b89e3a311!2sDiana_beauty_studio!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                <div class="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-80 lg:h-full min-h-[320px] flex flex-col">
+                    <div class="flex-1">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1953!2d106.7111845!3d-6.2334019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fa43d46a0d01%3A0x8e87ef8b89e3a311!2sDiana_beauty_studio!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-3 bg-white text-center border-t border-gray-100">
+                        <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="text-sm font-semibold text-rose-500 hover:underline">Buka Tampilan Penuh Google Maps</a>
+                    </div>
                 </div>
 
             </div>
