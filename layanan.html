@@ -7,92 +7,95 @@
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Pilih berbagai menu layanan perawatan salon profesional dari Diana Beauty Studio yang siap dipanggil langsung ke rumah Anda.">
+    <meta name="keywords" content="layanan salon panggilan, potong rambut, facial, hair treatment loreal, salon rumah">
 
-    <!-- Tailwind CSS CDN untuk Styling & Dark Mode -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="bg-white text-gray-800 antialiased">
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo menggunakan image1.jpeg -->
+            <!-- Logo -->
             <a href="index.html" class="flex items-center space-x-3">
                 <img src="image1.jpeg" alt="Diana Studio Logo" class="w-10 h-10 rounded-full object-cover border-2 border-rose-500 shadow-md">
-                <span class="text-xl font-bold tracking-tight">DIANA <span class="text-rose-500 font-medium">Studio</span></span>
+                <span class="text-xl font-bold tracking-tight text-gray-900">DIANA <span class="text-rose-500 font-medium">Studio</span></span>
             </a>
 
-            <!-- Navigation Links -->
+            <!-- Desktop Navigation Links -->
             <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                <a href="index.html" class="hover:text-rose-500 transition">Beranda</a>
-                <a href="layanan.html" class="text-rose-500 font-semibold transition">Daftar Layanan</a>
-                <a href="tentang-kami.html" class="hover:text-rose-500 transition">Tentang Kami</a>
+                <a href="index.html" class="text-gray-600 hover:text-rose-500 transition">Beranda</a>
+                <a href="layanan.html" class="text-rose-500 font-semibold">Daftar Layanan</a>
+                <a href="tentang-kami.html" class="text-gray-600 hover:text-rose-500 transition">Tentang Kami</a>
             </nav>
 
-            <!-- Actions (Dark Mode Toggle) -->
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:scale-105 transition shadow-sm" aria-label="Toggle Dark Mode">
-                    <svg id="theme-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="flex items-center md:hidden">
+                <button id="mobile-menu-button" class="p-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 focus:outline-none" aria-label="Buka Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <a href="index.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">Beranda</a>
+            <a href="layanan.html" class="block py-2.5 px-3 rounded-lg bg-rose-50 text-rose-500 font-semibold">Daftar Layanan</a>
+            <a href="tentang-kami.html" class="block py-2.5 px-3 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">Tentang Kami</a>
+        </div>
     </header>
 
     <!-- Content Section -->
-    <section class="py-16 lg:py-24">
+    <section class="py-12 lg:py-20 bg-gray-50/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Menu & Layanan Perawatan</h1>
-            <p class="text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-12">Perawatan profesional yang dapat dipesan langsung ke rumah Anda.</p>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 mb-3">Menu & Layanan Perawatan</h1>
+            <p class="text-gray-600 max-w-xl mx-auto mb-12 text-sm sm:text-base">Perawatan profesional yang dapat dipesan langsung ke lokasi rumah Anda.</p>
             
-            <!-- Grid Layanan dengan Gambar Lokal -->
+            <!-- Grid Layanan -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <!-- Card 1 -->
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
-                    <div class="h-48 overflow-hidden">
+                <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col">
+                    <div class="h-52 overflow-hidden bg-gray-100">
                         <img src="image2.jpeg" alt="Potong & Styling Rambut" class="w-full h-full object-cover hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold mb-2">Potong & Styling Rambut</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">Layanan pemotongan dan penataan gaya rambut presisi.</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Potong & Styling Rambut</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Layanan pemotongan, penataan, dan styling gaya rambut presisi sesuai bentuk wajah Anda.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
-                    <div class="h-48 overflow-hidden">
+                <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col">
+                    <div class="h-52 overflow-hidden bg-gray-100">
                         <img src="image3.jpeg" alt="Facial & Massage Wajah" class="w-full h-full object-cover hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold mb-2">Facial & Massage Wajah</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">Pembersihan mendalam dan relaksasi otot wajah.</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Facial & Massage Wajah</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Pembersihan mendalam, eksfoliasi, dan relaksasi otot wajah untuk mengembalikan kesegaran alami.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm flex flex-col">
-                    <div class="h-48 overflow-hidden">
+                <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col">
+                    <div class="h-52 overflow-hidden bg-gray-100">
                         <img src="image4.jpeg" alt="Hair Treatment L'Oréal" class="w-full h-full object-cover hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold mb-2">Hair Treatment L'Oréal</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm">Perawatan rambut intensif dengan produk terkemuka.</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Hair Treatment L'Oréal</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Perawatan rambut intensif menggunakan produk terkemuka untuk menutrisi rambut rusak dan kering.</p>
                         </div>
                     </div>
                 </div>
@@ -101,27 +104,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+    <footer class="bg-gray-50 border-t border-gray-100 py-8 text-center text-sm text-gray-500">
         <p>&copy; 2026 Diana Beauty Studio. Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- Script Toggle Dark Mode -->
+    <!-- Script Interaksi Mobile Menu -->
     <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
